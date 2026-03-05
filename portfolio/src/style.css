@@ -913,6 +913,19 @@ img { max-width: 100%; height: auto; }
 
 
 /* ── SIGNAL TRACE (CONTACT) ──────────────────────────────── */
+#signal-trace,
+#signal-trace * {
+  visibility: visible !important;
+}
+
+#signal-trace .contact-layout,
+#signal-trace .contact-info-card,
+#signal-trace .contact-link-item,
+#signal-trace .contact-terminal {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
 .contact-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;

@@ -434,50 +434,7 @@ function initScrollAnimations() {
     });
   });
 
-  // Contact info side
-  const contactLayout = document.querySelector('.contact-layout');
-  if (contactLayout) {
-    gsap.from('.contact-info-card', {
-      scrollTrigger: {
-        trigger: contactLayout,
-        start: 'top 85%',
-        once: true,
-      },
-      x: -50,
-      opacity: 0,
-      duration: 0.8,
-      ease: 'power3.out',
-    });
-
-    // Contact link items stagger
-    gsap.from('.contact-link-item', {
-      scrollTrigger: {
-        trigger: contactLayout,
-        start: 'top 80%',
-        once: true,
-      },
-      x: -20,
-      opacity: 0,
-      duration: 0.5,
-      stagger: 0.08,
-      delay: 0.3,
-      ease: 'power2.out',
-    });
-
-    // Terminal form side
-    gsap.from('.contact-terminal', {
-      scrollTrigger: {
-        trigger: contactLayout,
-        start: 'top 85%',
-        once: true,
-      },
-      x: 50,
-      opacity: 0,
-      duration: 0.8,
-      delay: 0.15,
-      ease: 'power3.out',
-    });
-  }
+  // Contact — no opacity animations, always visible
 
   // Parallax sections — different depths
   gsap.utils.toArray('.section').forEach((section, i) => {
