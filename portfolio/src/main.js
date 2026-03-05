@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════
-   TEJAS NIGAM — PORTFOLIO
+   TEJASV NIGAM — PORTFOLIO
    Main JavaScript — GSAP Animations / Parallax / 3D Hover
    ═══════════════════════════════════════════════════════════ */
 
