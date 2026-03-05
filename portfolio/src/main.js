@@ -434,29 +434,44 @@ function initScrollAnimations() {
     });
   });
 
-  // Contact cards
-  gsap.from('.contact-card', {
+  // Contact info side
+  gsap.from('.contact-info-card', {
     scrollTrigger: {
-      trigger: '.contact-grid',
+      trigger: '.contact-layout',
       start: 'top 80%',
       toggleActions: 'play none none none',
     },
-    y: 50,
+    x: -60,
     opacity: 0,
-    duration: 0.6,
-    stagger: 0.12,
-    ease: 'back.out(1.4)',
+    duration: 0.9,
+    ease: 'power3.out',
   });
 
-  gsap.from('.contact-terminal', {
+  // Contact link items stagger
+  gsap.from('.contact-link-item', {
     scrollTrigger: {
-      trigger: '.contact-terminal',
+      trigger: '.contact-links-list',
       start: 'top 85%',
       toggleActions: 'play none none none',
     },
-    y: 60,
+    x: -30,
     opacity: 0,
-    duration: 1,
+    duration: 0.5,
+    stagger: 0.1,
+    ease: 'power2.out',
+  });
+
+  // Terminal form side
+  gsap.from('.contact-terminal', {
+    scrollTrigger: {
+      trigger: '.contact-layout',
+      start: 'top 80%',
+      toggleActions: 'play none none none',
+    },
+    x: 60,
+    opacity: 0,
+    duration: 0.9,
+    delay: 0.15,
     ease: 'power3.out',
   });
 
