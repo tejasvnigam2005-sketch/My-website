@@ -7,40 +7,79 @@
   <meta name="description" content="Portfolio of Tejasv Nigam — A+ Class Vibe Coder, GenAI Builder, and Full Stack Developer. Mastered 50+ AI tools. Currently conquering the MERN Stack dungeon." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='80'>⚡</text></svg>" />
 </head>
 <body>
   <!-- PRELOADER / BOOT SEQUENCE -->
   <div id="preloader">
+    <div class="preloader-hex-grid">
+      <div class="hex-ring"></div>
+      <div class="hex-ring"></div>
+      <div class="hex-ring"></div>
+    </div>
     <div class="preloader-terminal">
       <div class="terminal-header">
-        <span class="terminal-dot red"></span>
-        <span class="terminal-dot yellow"></span>
-        <span class="terminal-dot green"></span>
+        <div class="terminal-dots">
+          <span class="terminal-dot red"></span>
+          <span class="terminal-dot yellow"></span>
+          <span class="terminal-dot green"></span>
+        </div>
         <span class="terminal-title">system_boot.sh</span>
+        <div class="terminal-traffic">
+          <span class="traffic-indicator"></span>
+          <span class="traffic-text">ENCRYPTED</span>
+        </div>
       </div>
       <div class="terminal-body" id="boot-terminal">
-        <div class="boot-line" data-delay="0">[SYSTEM] > Initializing portfolio kernel...</div>
-        <div class="boot-line" data-delay="300">[SYSTEM] > Loading neural networks... ██████████ 100%</div>
-        <div class="boot-line" data-delay="600">[SYSTEM] > Unknown entity detected at the Gate...</div>
-        <div class="boot-line" data-delay="900">[SYSTEM] > Rank scan complete. CONFIRMED: <span class="text-green">A+ CLASS</span></div>
-        <div class="boot-line" data-delay="1200">[SYSTEM] > Specialization: <span class="text-gold">GenAI + Vibe Code + Full Stack</span></div>
-        <div class="boot-line" data-delay="1500">[SYSTEM] > WARNING — Mastered <span class="text-red">50+ AI tools</span>. Cursor is his blade.</div>
-        <div class="boot-line" data-delay="1800">[SYSTEM] > ██████████ PROFILE LOADED 100%</div>
-        <div class="boot-line" data-delay="2100">[SYSTEM] > <span class="text-green">ACCESS GRANTED</span>. Entering portfolio...</div>
+        <div class="boot-line" data-delay="0">[KERNEL] > Initializing neural portfolio engine...</div>
+        <div class="boot-line" data-delay="300">[CORE] > Loading synaptic pathways... <span class="progress-inline">██████████</span> 100%</div>
+        <div class="boot-line" data-delay="600">[SCAN] > Unknown entity detected at the Gate...</div>
+        <div class="boot-line" data-delay="900">[AUTH] > Biometric scan complete. RANK: <span class="text-green">A+ CLASS</span></div>
+        <div class="boot-line" data-delay="1200">[SPEC] > Specialization: <span class="text-gold">GenAI · Vibe Code · Full Stack</span></div>
+        <div class="boot-line" data-delay="1500">[WARN] > <span class="text-red">50+ AI tools weaponized</span>. Cursor is his blade.</div>
+        <div class="boot-line" data-delay="1800">[LOAD] > ██████████ PROFILE LOADED 100%</div>
+        <div class="boot-line" data-delay="2100">[SYS ] > <span class="text-green">ACCESS GRANTED</span>. Breaching firewall...</div>
       </div>
     </div>
     <div class="preloader-progress">
       <div class="progress-bar" id="progress-bar"></div>
+      <div class="progress-glow"></div>
     </div>
+    <div class="preloader-percent" id="preloader-percent">0%</div>
   </div>
 
   <!-- MAIN CONTENT -->
   <main id="main-content" class="hidden">
     
-    <!-- PARTICLES BACKGROUND -->
-    <canvas id="particles-canvas"></canvas>
+    <!-- BACKGROUND LAYERS -->
+    <canvas id="matrix-canvas"></canvas>
+    <div id="circuit-overlay"></div>
+    <div id="noise-overlay"></div>
+    <div id="grid-overlay"></div>
+
+    <!-- CUSTOM CURSOR -->
+    <div id="cursor-dot"></div>
+    <div id="cursor-ring"></div>
+    <div id="cursor-glow"></div>
+
+    <!-- FLOATING HUD ELEMENTS -->
+    <div class="hud-element hud-top-left">
+      <span class="hud-label">SYS.STATUS</span>
+      <span class="hud-value text-green">ONLINE</span>
+    </div>
+    <div class="hud-element hud-top-right">
+      <span class="hud-label">VISITOR</span>
+      <span class="hud-value hud-counter" id="visitor-counter">001</span>
+    </div>
+    <div class="hud-element hud-bottom-left">
+      <span class="hud-label">COORD</span>
+      <span class="hud-value" id="mouse-coords">0000:0000</span>
+    </div>
+    <div class="hud-element hud-bottom-right">
+      <span class="hud-label">SCROLL</span>
+      <span class="hud-value" id="scroll-progress">0%</span>
+    </div>
 
     <!-- NAVIGATION -->
     <nav id="navbar">
@@ -48,13 +87,29 @@
         <span class="nav-bracket">[</span>
         <span class="nav-name">TN</span>
         <span class="nav-bracket">]</span>
+        <span class="nav-version">v2.0</span>
       </div>
       <div class="nav-links">
-        <a href="#hero" class="nav-link active" data-section="hero">HOME</a>
-        <a href="#player-data" class="nav-link" data-section="player-data">PROFILE</a>
-        <a href="#abilities" class="nav-link" data-section="abilities">SKILLS</a>
-        <a href="#quests" class="nav-link" data-section="quests">QUESTS</a>
-        <a href="#signal-trace" class="nav-link" data-section="signal-trace">CONTACT</a>
+        <a href="#hero" class="nav-link active" data-section="hero">
+          <span class="nav-link-index">00</span>
+          <span class="nav-link-text">HOME</span>
+        </a>
+        <a href="#player-data" class="nav-link" data-section="player-data">
+          <span class="nav-link-index">01</span>
+          <span class="nav-link-text">PROFILE</span>
+        </a>
+        <a href="#abilities" class="nav-link" data-section="abilities">
+          <span class="nav-link-index">02</span>
+          <span class="nav-link-text">SKILLS</span>
+        </a>
+        <a href="#quests" class="nav-link" data-section="quests">
+          <span class="nav-link-index">03</span>
+          <span class="nav-link-text">QUESTS</span>
+        </a>
+        <a href="#signal-trace" class="nav-link" data-section="signal-trace">
+          <span class="nav-link-index">04</span>
+          <span class="nav-link-text">CONTACT</span>
+        </a>
       </div>
       <div class="nav-mobile-toggle" id="mobile-toggle">
         <span></span><span></span><span></span>
@@ -64,67 +119,111 @@
     <!-- SECTION 01: HERO -->
     <section id="hero" class="section hero-section">
       <div class="hero-grid-overlay"></div>
+      <div class="hero-orb hero-orb-1"></div>
+      <div class="hero-orb hero-orb-2"></div>
+      <div class="hero-orb hero-orb-3"></div>
       <div class="hero-content">
+        <div class="hero-top-tag">
+          <span class="tag-dash">—</span>
+          <span class="tag-text">ENTITY PROFILE LOADED</span>
+          <span class="tag-dash">—</span>
+        </div>
         <div class="hero-glitch-container">
           <h1 class="hero-title glitch" data-text="TEJASV NIGAM">TEJASV NIGAM</h1>
+          <div class="hero-title-underline"></div>
         </div>
         <div class="hero-subtitle-line">
-          <span class="hero-rank-badge">A+ CLASS</span>
-          <span class="hero-separator">|</span>
+          <span class="hero-rank-badge">
+            <span class="badge-pulse"></span>
+            A+ CLASS
+          </span>
+          <span class="hero-separator">⟐</span>
           <span class="hero-subtitle-text" id="hero-typed"></span>
-          <span class="typed-cursor">█</span>
+          <span class="typed-cursor">▌</span>
         </div>
-        <p class="hero-tagline">"Not the kind who reads the docs first.<br>The kind who prompts, ships, <strong>then</strong> reads."</p>
+        <p class="hero-tagline">"Not the kind who reads the docs first.<br>The kind who <em>prompts</em>, <strong>ships</strong>, <em>then</em> reads."</p>
         <div class="hero-cta-group">
           <a href="#player-data" class="cta-btn primary" id="cta-explore">
+            <span class="cta-icon">◈</span>
             <span class="cta-text">EXPLORE PROFILE</span>
             <span class="cta-arrow">→</span>
           </a>
           <a href="#signal-trace" class="cta-btn secondary" id="cta-contact">
+            <span class="cta-icon">◇</span>
             <span class="cta-text">SIGNAL ME</span>
           </a>
         </div>
         <div class="hero-stats-bar">
           <div class="hero-stat">
-            <span class="stat-value" data-count="50">0</span><span class="stat-plus">+</span>
+            <div class="stat-ring">
+              <svg viewBox="0 0 36 36">
+                <path class="stat-ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                <path class="stat-ring-fill" stroke-dasharray="100, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+              </svg>
+              <span class="stat-value" data-count="50">0</span><span class="stat-plus">+</span>
+            </div>
             <span class="stat-label">AI TOOLS</span>
           </div>
           <div class="hero-stat-divider"></div>
           <div class="hero-stat">
-            <span class="stat-value" data-count="6">0</span><span class="stat-plus">+</span>
+            <div class="stat-ring">
+              <svg viewBox="0 0 36 36">
+                <path class="stat-ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                <path class="stat-ring-fill" stroke-dasharray="60, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+              </svg>
+              <span class="stat-value" data-count="6">0</span><span class="stat-plus">+</span>
+            </div>
             <span class="stat-label">LANGUAGES</span>
           </div>
           <div class="hero-stat-divider"></div>
           <div class="hero-stat">
-            <span class="stat-value-text">S</span>
+            <div class="stat-ring">
+              <svg viewBox="0 0 36 36">
+                <path class="stat-ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                <path class="stat-ring-fill rank-s-ring" stroke-dasharray="95, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+              </svg>
+              <span class="stat-value-text">S</span>
+            </div>
             <span class="stat-label">GENAI RANK</span>
           </div>
         </div>
       </div>
       <div class="scroll-indicator" id="scroll-indicator">
+        <div class="scroll-mouse">
+          <div class="scroll-wheel"></div>
+        </div>
         <span class="scroll-text">SCROLL TO ENTER</span>
-        <div class="scroll-arrow">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+        <div class="scroll-arrows">
+          <span class="scroll-arrow-item">›</span>
+          <span class="scroll-arrow-item">›</span>
+          <span class="scroll-arrow-item">›</span>
         </div>
       </div>
     </section>
 
     <!-- SECTION 02: PLAYER DATA -->
     <section id="player-data" class="section">
+      <div class="section-divider">
+        <div class="divider-line"></div>
+        <div class="divider-dot"></div>
+        <div class="divider-line"></div>
+      </div>
       <div class="section-header">
         <div class="section-tag">[01]</div>
         <h2 class="section-title">PLAYER DATA</h2>
         <p class="section-desc">Origin // Classification // Current Arc</p>
       </div>
       <div class="player-grid">
-        <div class="player-terminal card-3d" id="profile-card">
+        <div class="player-terminal card-glass" id="profile-card">
+          <div class="card-border-glow"></div>
           <div class="terminal-header">
-            <span class="terminal-dot red"></span>
-            <span class="terminal-dot yellow"></span>
-            <span class="terminal-dot green"></span>
+            <div class="terminal-dots">
+              <span class="terminal-dot red"></span>
+              <span class="terminal-dot yellow"></span>
+              <span class="terminal-dot green"></span>
+            </div>
             <span class="terminal-title">> entity.profile</span>
+            <span class="terminal-status online">● LIVE</span>
           </div>
           <div class="terminal-body terminal-content">
             <div class="terminal-line"><span class="t-key">NAME</span><span class="t-colon">:</span> <span class="t-val">Tejasv Nigam</span></div>
@@ -132,28 +231,33 @@
             <div class="terminal-line"><span class="t-key">TITLE</span><span class="t-colon">:</span> <span class="t-val">Vibe Coder · GenAI Builder · Full Stack Dev</span></div>
             <div class="terminal-line"><span class="t-key">GUILD</span><span class="t-colon">:</span> <span class="t-val">Currently Unaffiliated</span> <span class="t-comment">[SOLO PLAYER]</span></div>
             <div class="terminal-line"><span class="t-key">STATUS</span><span class="t-colon">:</span> <span class="t-val text-gold">⚡ AWAKENED</span> <span class="t-comment">— 50+ AI tools. Still counting.</span></div>
+            <div class="terminal-line"><span class="t-key">WEAPON</span><span class="t-colon">:</span> <span class="t-val text-cyan">Cursor IDE</span> <span class="t-comment">[PRIMARY BLADE]</span></div>
           </div>
         </div>
-        <div class="player-arc card-3d" id="arc-card">
+        <div class="player-arc card-glass" id="arc-card">
+          <div class="card-border-glow"></div>
           <div class="terminal-header">
-            <span class="terminal-dot red"></span>
-            <span class="terminal-dot yellow"></span>
-            <span class="terminal-dot green"></span>
+            <div class="terminal-dots">
+              <span class="terminal-dot red"></span>
+              <span class="terminal-dot yellow"></span>
+              <span class="terminal-dot green"></span>
+            </div>
             <span class="terminal-title">> current_arc --active</span>
+            <span class="terminal-status active">● ACTIVE</span>
           </div>
           <div class="terminal-body">
             <div class="arc-item">
-              <span class="arc-plus">+</span>
+              <span class="arc-indicator"></span>
               <span class="arc-status">MASTERING</span>
               <span class="arc-text">MERN Stack — The Final Web Dungeon</span>
             </div>
             <div class="arc-item">
-              <span class="arc-plus">+</span>
+              <span class="arc-indicator"></span>
               <span class="arc-status">GRINDING</span>
               <span class="arc-text">Vibe Coding on Cursor · Kiro · Codex</span>
             </div>
             <div class="arc-item">
-              <span class="arc-plus">+</span>
+              <span class="arc-indicator"></span>
               <span class="arc-status">DEPLOYING</span>
               <span class="arc-text">SaaS ideas into real products, fast</span>
             </div>
@@ -173,6 +277,11 @@
 
     <!-- SECTION 03: ABILITY REGISTER -->
     <section id="abilities" class="section">
+      <div class="section-divider">
+        <div class="divider-line"></div>
+        <div class="divider-dot"></div>
+        <div class="divider-line"></div>
+      </div>
       <div class="section-header">
         <div class="section-tag">[02]</div>
         <h2 class="section-title">ABILITY REGISTER</h2>
@@ -183,32 +292,38 @@
         <div class="ability-category">
           <h3 class="ability-cat-title"><span class="cat-marker">▸</span> NEURAL CORE — AI / GENAI</h3>
           <div class="skills-grid">
-            <div class="skill-card card-3d" data-rank="S">
+            <div class="skill-card card-glass" data-rank="S">
+              <div class="skill-power-bar" style="--power: 98%"></div>
               <div class="skill-icon">🧠</div>
               <div class="skill-name">Generative AI</div>
               <div class="skill-rank rank-s">S</div>
             </div>
-            <div class="skill-card card-3d" data-rank="S">
+            <div class="skill-card card-glass" data-rank="S">
+              <div class="skill-power-bar" style="--power: 95%"></div>
               <div class="skill-icon">💬</div>
               <div class="skill-name">ChatGPT</div>
               <div class="skill-rank rank-s">S</div>
             </div>
-            <div class="skill-card card-3d" data-rank="S">
+            <div class="skill-card card-glass" data-rank="S">
+              <div class="skill-power-bar" style="--power: 96%"></div>
               <div class="skill-icon">✨</div>
               <div class="skill-name">Google Gemini</div>
               <div class="skill-rank rank-s">S</div>
             </div>
-            <div class="skill-card card-3d" data-rank="S">
+            <div class="skill-card card-glass" data-rank="S">
+              <div class="skill-power-bar" style="--power: 94%"></div>
               <div class="skill-icon">🤖</div>
               <div class="skill-name">Claude</div>
               <div class="skill-rank rank-s">S</div>
             </div>
-            <div class="skill-card card-3d" data-rank="A">
+            <div class="skill-card card-glass" data-rank="A">
+              <div class="skill-power-bar" style="--power: 82%"></div>
               <div class="skill-icon">🎨</div>
               <div class="skill-name">Midjourney</div>
               <div class="skill-rank rank-a">A</div>
             </div>
-            <div class="skill-card card-3d" data-rank="S">
+            <div class="skill-card card-glass" data-rank="S">
+              <div class="skill-power-bar" style="--power: 100%"></div>
               <div class="skill-icon">⚡</div>
               <div class="skill-name">50+ AI Tools</div>
               <div class="skill-rank rank-mastered">MASTERED</div>
@@ -220,27 +335,32 @@
         <div class="ability-category">
           <h3 class="ability-cat-title"><span class="cat-marker">▸</span> VIBE CORE — IDEs & VIBE CODING</h3>
           <div class="skills-grid">
-            <div class="skill-card card-3d" data-rank="S">
+            <div class="skill-card card-glass" data-rank="S">
+              <div class="skill-power-bar" style="--power: 97%"></div>
               <div class="skill-icon">⚔️</div>
               <div class="skill-name">Cursor</div>
               <div class="skill-rank rank-s">S</div>
             </div>
-            <div class="skill-card card-3d" data-rank="A">
+            <div class="skill-card card-glass" data-rank="A">
+              <div class="skill-power-bar" style="--power: 80%"></div>
               <div class="skill-icon">☁️</div>
               <div class="skill-name">Kiro Code</div>
               <div class="skill-rank rank-a">A</div>
             </div>
-            <div class="skill-card card-3d" data-rank="A">
+            <div class="skill-card card-glass" data-rank="A">
+              <div class="skill-power-bar" style="--power: 78%"></div>
               <div class="skill-icon">🔮</div>
               <div class="skill-name">OpenAI Codex</div>
               <div class="skill-rank rank-a">A</div>
             </div>
-            <div class="skill-card card-3d" data-rank="A">
+            <div class="skill-card card-glass" data-rank="A">
+              <div class="skill-power-bar" style="--power: 81%"></div>
               <div class="skill-icon">🔬</div>
               <div class="skill-name">Google AI Studio</div>
               <div class="skill-rank rank-a">A</div>
             </div>
-            <div class="skill-card card-3d" data-rank="B">
+            <div class="skill-card card-glass" data-rank="B">
+              <div class="skill-power-bar" style="--power: 65%"></div>
               <div class="skill-icon">🚀</div>
               <div class="skill-name">Antigravity</div>
               <div class="skill-rank rank-b">B</div>
@@ -252,22 +372,26 @@
         <div class="ability-category">
           <h3 class="ability-cat-title"><span class="cat-marker">▸</span> SYSTEM CORE — LANGUAGES</h3>
           <div class="skills-grid">
-            <div class="skill-card card-3d" data-rank="A">
+            <div class="skill-card card-glass" data-rank="A">
+              <div class="skill-power-bar" style="--power: 85%"></div>
               <div class="skill-icon">🐍</div>
               <div class="skill-name">Python</div>
               <div class="skill-rank rank-a">A</div>
             </div>
-            <div class="skill-card card-3d" data-rank="A">
+            <div class="skill-card card-glass" data-rank="A">
+              <div class="skill-power-bar" style="--power: 80%"></div>
               <div class="skill-icon">⚙️</div>
               <div class="skill-name">C</div>
               <div class="skill-rank rank-a">A</div>
             </div>
-            <div class="skill-card card-3d" data-rank="A">
+            <div class="skill-card card-glass" data-rank="A">
+              <div class="skill-power-bar" style="--power: 82%"></div>
               <div class="skill-icon">🛡️</div>
               <div class="skill-name">C++</div>
               <div class="skill-rank rank-a">A</div>
             </div>
-            <div class="skill-card card-3d" data-rank="A">
+            <div class="skill-card card-glass" data-rank="A">
+              <div class="skill-power-bar" style="--power: 83%"></div>
               <div class="skill-icon">🌐</div>
               <div class="skill-name">JavaScript</div>
               <div class="skill-rank rank-a">A</div>
@@ -279,32 +403,38 @@
         <div class="ability-category">
           <h3 class="ability-cat-title"><span class="cat-marker">▸</span> SHADOW FRONT — WEB STACK</h3>
           <div class="skills-grid">
-            <div class="skill-card card-3d" data-rank="A">
+            <div class="skill-card card-glass" data-rank="A">
+              <div class="skill-power-bar" style="--power: 84%"></div>
               <div class="skill-icon">⚛️</div>
               <div class="skill-name">React</div>
               <div class="skill-rank rank-a">A</div>
             </div>
-            <div class="skill-card card-3d" data-rank="A">
+            <div class="skill-card card-glass" data-rank="A">
+              <div class="skill-power-bar" style="--power: 80%"></div>
               <div class="skill-icon">🟢</div>
               <div class="skill-name">Node.js</div>
               <div class="skill-rank rank-a">A</div>
             </div>
-            <div class="skill-card card-3d" data-rank="A">
+            <div class="skill-card card-glass" data-rank="A">
+              <div class="skill-power-bar" style="--power: 85%"></div>
               <div class="skill-icon">⚡</div>
               <div class="skill-name">Vite</div>
               <div class="skill-rank rank-a">A</div>
             </div>
-            <div class="skill-card card-3d" data-rank="mastering">
+            <div class="skill-card card-glass" data-rank="mastering">
+              <div class="skill-power-bar" style="--power: 55%"></div>
               <div class="skill-icon">🍃</div>
               <div class="skill-name">MongoDB</div>
               <div class="skill-rank rank-mastering">MASTERING</div>
             </div>
-            <div class="skill-card card-3d" data-rank="mastering">
+            <div class="skill-card card-glass" data-rank="mastering">
+              <div class="skill-power-bar" style="--power: 52%"></div>
               <div class="skill-icon">🚂</div>
               <div class="skill-name">Express.js</div>
               <div class="skill-rank rank-mastering">MASTERING</div>
             </div>
-            <div class="skill-card card-3d" data-rank="mastering">
+            <div class="skill-card card-glass" data-rank="mastering">
+              <div class="skill-power-bar" style="--power: 50%"></div>
               <div class="skill-icon">🔥</div>
               <div class="skill-name">MERN Stack</div>
               <div class="skill-rank rank-mastering">MASTERING</div>
@@ -326,13 +456,18 @@
 
     <!-- SECTION 04: ACTIVE QUESTS -->
     <section id="quests" class="section">
+      <div class="section-divider">
+        <div class="divider-line"></div>
+        <div class="divider-dot"></div>
+        <div class="divider-line"></div>
+      </div>
       <div class="section-header">
         <div class="section-tag">[03]</div>
         <h2 class="section-title">ACTIVE QUESTS</h2>
         <p class="section-desc">Current Arcs // Season 1 // Priority Ranked</p>
       </div>
       <div class="quests-container">
-        <div class="quest-card card-3d" data-quest-rank="S">
+        <div class="quest-card card-glass" data-quest-rank="S">
           <div class="quest-rank-indicator rank-s">S</div>
           <div class="quest-info">
             <h3 class="quest-title">GenAI SaaS Product</h3>
@@ -341,7 +476,7 @@
           <div class="quest-status status-final">🔴 FINAL BOSS</div>
           <div class="quest-season">S · 1</div>
         </div>
-        <div class="quest-card card-3d" data-quest-rank="A">
+        <div class="quest-card card-glass" data-quest-rank="A">
           <div class="quest-rank-indicator rank-a">A</div>
           <div class="quest-info">
             <h3 class="quest-title">MERN Stack Mastery</h3>
@@ -350,7 +485,7 @@
           <div class="quest-status status-active">🟣 ACTIVE</div>
           <div class="quest-season">S · 1</div>
         </div>
-        <div class="quest-card card-3d" data-quest-rank="A">
+        <div class="quest-card card-glass" data-quest-rank="A">
           <div class="quest-rank-indicator rank-a">A</div>
           <div class="quest-info">
             <h3 class="quest-title">50+ AI Tools Integration</h3>
@@ -359,7 +494,7 @@
           <div class="quest-status status-climax">🟢 CLIMAX</div>
           <div class="quest-season">S · 1</div>
         </div>
-        <div class="quest-card card-3d" data-quest-rank="A">
+        <div class="quest-card card-glass" data-quest-rank="A">
           <div class="quest-rank-indicator rank-a">A</div>
           <div class="quest-info">
             <h3 class="quest-title">Advanced Cursor Workflows</h3>
@@ -368,7 +503,7 @@
           <div class="quest-status status-powerup">🟡 POWER-UP</div>
           <div class="quest-season">S · 1</div>
         </div>
-        <div class="quest-card card-3d" data-quest-rank="B">
+        <div class="quest-card card-glass" data-quest-rank="B">
           <div class="quest-rank-indicator rank-b">B</div>
           <div class="quest-info">
             <h3 class="quest-title">System Design for SaaS</h3>
@@ -377,7 +512,7 @@
           <div class="quest-status status-training">🔵 TRAINING ARC</div>
           <div class="quest-season">S · 2</div>
         </div>
-        <div class="quest-card card-3d" data-quest-rank="B">
+        <div class="quest-card card-glass" data-quest-rank="B">
           <div class="quest-rank-indicator rank-b">B</div>
           <div class="quest-info">
             <h3 class="quest-title">Open Source Contributions</h3>
@@ -392,6 +527,11 @@
 
     <!-- SECTION 05: SIGNAL TRACE (CONTACT) -->
     <section id="signal-trace" class="section">
+      <div class="section-divider">
+        <div class="divider-line"></div>
+        <div class="divider-dot"></div>
+        <div class="divider-line"></div>
+      </div>
       <div class="section-header">
         <div class="section-tag">[04]</div>
         <h2 class="section-title">SIGNAL TRACE</h2>
@@ -401,7 +541,8 @@
       <div class="contact-layout">
         <!-- LEFT: Info + Quick Links -->
         <div class="contact-info-side">
-          <div class="contact-info-card card-3d">
+          <div class="contact-info-card card-glass">
+            <div class="card-border-glow"></div>
             <div class="contact-info-inner">
               <h3 class="contact-heading">Let's Connect</h3>
               <p class="contact-description">Whether it's a project, collaboration, or just to say hi — my channels are always open. Pick your signal.</p>
@@ -462,11 +603,14 @@
 
         <!-- RIGHT: Terminal Form -->
         <div class="contact-form-side">
-          <div class="contact-terminal card-3d">
+          <div class="contact-terminal card-glass">
+            <div class="card-border-glow"></div>
             <div class="terminal-header">
-              <span class="terminal-dot red"></span>
-              <span class="terminal-dot yellow"></span>
-              <span class="terminal-dot green"></span>
+              <div class="terminal-dots">
+                <span class="terminal-dot red"></span>
+                <span class="terminal-dot yellow"></span>
+                <span class="terminal-dot green"></span>
+              </div>
               <span class="terminal-title">> send_signal --interactive</span>
             </div>
             <div class="terminal-body contact-form-body">
@@ -503,8 +647,10 @@
           <span class="footer-prompt">[SYSTEM] ></span>
           <span class="footer-msg">Closing transmission for UNIT: TEJASV NIGAM...</span>
         </div>
-        <div class="footer-quote">"50+ tools mastered. The AI era didn't wait. Neither did I."</div>
-        <div class="footer-quote">"Vibe coding isn't a shortcut. It's the new superpower."</div>
+        <div class="footer-quotes">
+          <div class="footer-quote">"50+ tools mastered. The AI era didn't wait. Neither did I."</div>
+          <div class="footer-quote">"Vibe coding isn't a shortcut. It's the new superpower."</div>
+        </div>
         <div class="footer-bottom">
           <span class="footer-status">Season 1 active. MERN dungeon — IN PROGRESS...</span>
           <span class="footer-year">© 2025 Tejasv Nigam. This arc is not over. ▌</span>
