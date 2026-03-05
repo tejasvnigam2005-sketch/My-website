@@ -435,45 +435,49 @@ function initScrollAnimations() {
   });
 
   // Contact info side
-  gsap.from('.contact-info-card', {
-    scrollTrigger: {
-      trigger: '.contact-layout',
-      start: 'top 80%',
-      toggleActions: 'play none none none',
-    },
-    x: -60,
-    opacity: 0,
-    duration: 0.9,
-    ease: 'power3.out',
-  });
+  const contactLayout = document.querySelector('.contact-layout');
+  if (contactLayout) {
+    gsap.from('.contact-info-card', {
+      scrollTrigger: {
+        trigger: contactLayout,
+        start: 'top 85%',
+        once: true,
+      },
+      x: -50,
+      opacity: 0,
+      duration: 0.8,
+      ease: 'power3.out',
+    });
 
-  // Contact link items stagger
-  gsap.from('.contact-link-item', {
-    scrollTrigger: {
-      trigger: '.contact-links-list',
-      start: 'top 85%',
-      toggleActions: 'play none none none',
-    },
-    x: -30,
-    opacity: 0,
-    duration: 0.5,
-    stagger: 0.1,
-    ease: 'power2.out',
-  });
+    // Contact link items stagger
+    gsap.from('.contact-link-item', {
+      scrollTrigger: {
+        trigger: contactLayout,
+        start: 'top 80%',
+        once: true,
+      },
+      x: -20,
+      opacity: 0,
+      duration: 0.5,
+      stagger: 0.08,
+      delay: 0.3,
+      ease: 'power2.out',
+    });
 
-  // Terminal form side
-  gsap.from('.contact-terminal', {
-    scrollTrigger: {
-      trigger: '.contact-layout',
-      start: 'top 80%',
-      toggleActions: 'play none none none',
-    },
-    x: 60,
-    opacity: 0,
-    duration: 0.9,
-    delay: 0.15,
-    ease: 'power3.out',
-  });
+    // Terminal form side
+    gsap.from('.contact-terminal', {
+      scrollTrigger: {
+        trigger: contactLayout,
+        start: 'top 85%',
+        once: true,
+      },
+      x: 50,
+      opacity: 0,
+      duration: 0.8,
+      delay: 0.15,
+      ease: 'power3.out',
+    });
+  }
 
   // Parallax sections — different depths
   gsap.utils.toArray('.section').forEach((section, i) => {
@@ -591,22 +595,21 @@ function initSmoothScroll() {
 
 /* ── IMMERSIVE ZOOM SECTIONS ─────────────────────────────── */
 function initImmersiveZoom() {
-  // Each section zooms in slightly as you approach it
+  // Subtle scale-up as each section enters viewport
   gsap.utils.toArray('.section').forEach((section, i) => {
     if (i === 0) return; // Skip hero
 
     gsap.fromTo(section, 
-      { scale: 0.95, opacity: 0.5 },
+      { scale: 0.97 },
       {
         scale: 1,
-        opacity: 1,
         scrollTrigger: {
           trigger: section,
-          start: 'top 90%',
-          end: 'top 40%',
+          start: 'top 95%',
+          end: 'top 60%',
           scrub: 1,
         },
-        ease: 'power2.out',
+        ease: 'power1.out',
       }
     );
   });
